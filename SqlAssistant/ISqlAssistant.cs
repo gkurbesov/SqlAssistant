@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 
 namespace SqlAssistant
 {
@@ -31,6 +32,6 @@ namespace SqlAssistant
         /// Open and return new connection
         /// </summary>
         /// <returns></returns>
-        Task<IDbConnection> GetOpenConnectionAsync();
+        Task<IDbConnection> GetOpenConnectionAsync(CancellationToken cancellationToken = default);
     }
 }

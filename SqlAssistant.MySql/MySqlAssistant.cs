@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace SqlAssistant.MySql
@@ -47,10 +48,10 @@ namespace SqlAssistant.MySql
             return connection;
         }
 
-        public async Task<IDbConnection> GetOpenConnectionAsync()
+        public async Task<IDbConnection> GetOpenConnectionAsync(CancellationToken cancellationToken = default)
         {
             var connection = new MySqlConnection(GetConnectionString());
-            await connection.OpenAsync();
+            await connection.OpenAsync(cancellationToken);
             return connection;
         }
     }
