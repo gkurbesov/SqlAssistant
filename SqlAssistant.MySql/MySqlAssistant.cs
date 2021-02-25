@@ -28,7 +28,7 @@ namespace SqlAssistant.MySql
 
         public IDbConnection GetConnection(ISqlConfig value)
         {
-            if (config == null)
+            if (value == null)
                 throw new ArgumentNullException(nameof(config), "Config cannot be null");
             var connectionString = value.GetConnectionString();
             if (string.IsNullOrWhiteSpace(connectionString))
